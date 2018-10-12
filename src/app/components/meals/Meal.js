@@ -18,7 +18,9 @@ const mealStyles = StyleSheet.create({
         borderStyle: "solid",
         borderWidth: 1,
         borderRadius: 5,
+        backgroundColor: "#FFF",
         padding: 5,
+        margin: 10,
         width: 150
     },
     name: {
@@ -27,5 +29,7 @@ const mealStyles = StyleSheet.create({
     },
     thumbnail: {
         height: 100,
+        borderRadius: 10,
+        margin: 2
     }
 });

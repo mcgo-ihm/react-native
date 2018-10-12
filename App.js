@@ -8,7 +8,7 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
-import {Meal} from './src/app/components/Meal.js';
+import {MealList} from './src/app/components/meals';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -22,10 +22,7 @@ export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-        <Meal name="Jambon-Beurre" thumbnailUri='https://facebook.github.io/react-native/docs/assets/favicon.png'></Meal>
+        <MealList />
       </View>
     );
   }
