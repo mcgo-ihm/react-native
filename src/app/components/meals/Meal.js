@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image, Button} from 'react-native';
 
 export class Meal extends Component {
     render() {
         return (
-            <View style={mealStyles.container}>
+            <View style={[mealStyles.container, this.props.style]}>
                 <Text style={mealStyles.name}>{this.props.name}</Text>
                 <Image style={mealStyles.thumbnail} source={{uri: this.props.thumbnailUri}} />
             </View>
@@ -14,13 +14,10 @@ export class Meal extends Component {
 
 const mealStyles = StyleSheet.create({
     container: {
-        borderColor: "#777",
-        borderStyle: "solid",
-        borderWidth: 1,
+        elevation: 2,
         borderRadius: 5,
         backgroundColor: "#FFF",
         padding: 5,
-        margin: 10,
         width: 150
     },
     name: {
@@ -31,5 +28,8 @@ const mealStyles = StyleSheet.create({
         height: 100,
         borderRadius: 10,
         margin: 2
+    },
+    button: {
+        margin: 6
     }
 });
