@@ -8,17 +8,16 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, StatusBar, View, Text} from 'react-native';
-import {MealList} from './src/app/components/meals';
+import {MealList, DetailedMeal} from './src/app/components/meals';
 import { createStackNavigator } from 'react-navigation';
 
 const RootStack = createStackNavigator(
   {
-    Home: {
-      screen: MealList
-    },
+    Home: MealList,
+    Detail: DetailedMeal
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'Detail',
   }
 );
 
