@@ -19,7 +19,7 @@ export class MealList extends Component {
                     ]}
 
                     renderItem = {({item}) =>
-                        <TouchableOpacity activeOpacity={0.5} >
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate("Detail")} activeOpacity={0.5} >
                             <Meal style={styles.item} name={item.key} thumbnailUri={item.thumbnailUri} />
                         </TouchableOpacity>}
                 />
