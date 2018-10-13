@@ -17,7 +17,7 @@ const RootStack = createStackNavigator(
     Detail: DetailedMeal
   },
   {
-    initialRouteName: 'Detail',
+    initialRouteName: 'Home',
   }
 );
 

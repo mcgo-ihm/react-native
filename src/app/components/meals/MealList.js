@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, FlatList, StyleSheet} from 'react-native';
+import {View, Text, FlatList, StyleSheet, TouchableOpacity} from 'react-native';
 import {Meal} from './Meal.js';
 
 export class MealList extends Component {
@@ -18,7 +18,10 @@ export class MealList extends Component {
                         {key: "Jambon-Beurre", thumbnailUri: 'http://micheltanguy.com/wp-content/uploads/2017/03/jambon-beurre2-1.jpg'}
                     ]}
 
-                    renderItem = {({item}) => <Meal style={styles.item} name={item.key} thumbnailUri={item.thumbnailUri} />}
+                    renderItem = {({item}) =>
+                        <TouchableOpacity activeOpacity={0.5} >
+                            <Meal style={styles.item} name={item.key} thumbnailUri={item.thumbnailUri} />
+                        </TouchableOpacity>}
                 />
             </View>
         );

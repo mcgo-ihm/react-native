@@ -16,7 +16,7 @@ const mealStyles = StyleSheet.create({
     container: {
         elevation: 2,
         borderRadius: 5,
-        backgroundColor: "#FFF",
+        backgroundColor: "#fff",
         padding: 5,
         width: 150
     },
