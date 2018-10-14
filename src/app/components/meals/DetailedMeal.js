@@ -4,25 +4,27 @@ import {Meal} from './Meal.js';
 
 export class DetailedMeal extends Component {
     static navigationOptions = {
-        title: 'Jambon-Beurre'
+        title: 'McGo'
     }
     onPressButton() {
         Alert.alert("Yay!");
     }
     render() {
+        let meal = this.props.navigation.getParam('meal', {key: "Error", description: "Error", prize: "0,00€",
+            thumbnailUri: "https://facebook.github.io/react-native/docs/assets/favicon.png"});
         return (
             <View style={styles.container}>
                 <View style={styles.header}>
-                    <Image style={styles.image} source={{ uri: 'http://micheltanguy.com/wp-content/uploads/2017/03/jambon-beurre2-1.jpg' }}></Image>
+                    <Image style={styles.image} source={{ uri: meal.thumbnailUri }}></Image>
                     <View style={styles.titleBox}>
-                        <Text style={styles.titleBoxText}>Jambon-Beurre</Text>
+                        <Text style={styles.titleBoxText}>{meal.key}</Text>
                         <View>
-                            <Text style={styles.prize}>2,00€</Text>
+                            <Text style={styles.prize}>{meal.prize}</Text>
                         </View>
                     </View>
                 </View>
                 <View style={{flex: 1}}>
-                    <Text style={{margin: 15}}>Un délicieux jambon beurre qui ravira petits et grands !</Text>
+                    <Text style={{margin: 15}}>{meal.description}</Text>
                 </View>
                 <Button onPress={this.onPressButton} title="Ajouter à la commande"
                     color="#FCA10F" accessibilityLabel="Ajouter cet article à votre commande actuelle" />

@@ -13,13 +13,16 @@ export class MealList extends Component {
                     contentContainerStyle={styles.list}
                     numColumns={2}
                     data = {[
-                        {key: "Jambon-Beurre", thumbnailUri: 'http://www.disneyfoodblog.com/wp-content/uploads/2013/07/ham-and-cheese-baguette-Les-Halles.jpg'},
-                        {key: "Jambon-Beurre", thumbnailUri: 'http://www.disneyfoodblog.com/wp-content/uploads/2013/07/ham-and-cheese-baguette-Les-Halles.jpg'},
-                        {key: "Jambon-Beurre", thumbnailUri: 'http://micheltanguy.com/wp-content/uploads/2017/03/jambon-beurre2-1.jpg'}
+                        {key: "Parisien", description: "Un sandwich simple, certes, mais délicieux !", prize: "3,00€",
+                            thumbnailUri: 'http://www.disneyfoodblog.com/wp-content/uploads/2013/07/ham-and-cheese-baguette-Les-Halles.jpg'},
+                        {key: "Cheeseburger", description: "Le grand classique du burger, une valeur sure !", prize: "2,00€",
+                            thumbnailUri: 'https://www.sbs.com.au/food/sites/sbs.com.au.food/files/lotus-burger-lead.jpg'},
+                        {key: "Jambon-Beurre", description: "Le plus simple des sandwich, mais un immanquable.", prize: "2,00€",
+                            thumbnailUri: 'http://micheltanguy.com/wp-content/uploads/2017/03/jambon-beurre2-1.jpg'}
                     ]}
 
                     renderItem = {({item}) =>
-                        <TouchableOpacity onPress={() => this.props.navigation.navigate("Detail")} activeOpacity={0.5} >
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate("Detail", {meal: item})} activeOpacity={0.5} >
                             <Meal style={styles.item} name={item.key} thumbnailUri={item.thumbnailUri} />
                         </TouchableOpacity>}
                 />
