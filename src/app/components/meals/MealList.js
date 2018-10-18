@@ -35,7 +35,9 @@ export class MealList extends Component {
             Alert.alert("Shake it out!");
         });
     }
-
+    componentWillUnmount() {
+        RNShake.removeEventListener('shake');
+    }
 }
 
 const styles = StyleSheet.create({
