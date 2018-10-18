@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import {View, Text, FlatList, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Alert, Text, FlatList, StyleSheet, TouchableOpacity} from 'react-native';
 import {Meal} from './Meal.js';
+import RNShake from 'react-native-shake';
 
 export class MealList extends Component {
     static navigationOptions = {
@@ -29,6 +30,12 @@ export class MealList extends Component {
             </View>
         );
     }
+    componentWillMount() {
+        RNShake.addEventListener('shake', () => {
+            Alert.alert("Shake it out!");
+        });
+    }
+
 }
 
 const styles = StyleSheet.create({
