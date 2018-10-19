@@ -24,7 +24,7 @@ const RootStack = createStackNavigator(
 type Props = {};
 export default class App extends Component<Props> {
   render() {
-    this.requestCameraPermission();
+    this.requestLocationPermission();
     return (
      <View style={styles.container}>
         <StatusBar backgroundColor="#FCA10F" barStyle="light-content" />
@@ -33,7 +33,7 @@ export default class App extends Component<Props> {
     );
   }
 
-  async requestCameraPermission() {
+  async requestLocationPermission() {
     try {
       const granted = await PermissionsAndroid.request(
         PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,

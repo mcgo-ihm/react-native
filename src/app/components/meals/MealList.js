@@ -7,6 +7,10 @@ export class MealList extends Component {
     static navigationOptions = {
         title: 'McGo',
     };
+    
+    constructor(props){
+        super(props);
+    }
     render() {
         return (
             <View style={styles.container}>
@@ -31,13 +35,15 @@ export class MealList extends Component {
         );
     }
     componentWillMount() {
-        navigator.geolocation.getCurrentPosition(
+       navigator.geolocation.watchPosition(
             (position) => {
-                RNShake.addEventListener('shake', () => {
-                    Alert.alert(position.coords.latitude + " " + position.coords.longitude);
-                });
-            }
-        );
+                if (Math.abs(position.coords.longitude - 7) < 0.005 && Math.abs(position.coords.latitude - 43.55) < 0.005) {
+                    Alert.alert(position.coords.longitude + " " + position.coords.latitude);
+                }
+            });
+        RNShake.addEventListener('shake', () => {
+            Alert.alert("Shake it out!");
+        });
     }
     componentWillUnmount() {
         RNShake.removeEventListener('shake');
