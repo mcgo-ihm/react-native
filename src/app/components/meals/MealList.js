@@ -31,9 +31,13 @@ export class MealList extends Component {
         );
     }
     componentWillMount() {
-        RNShake.addEventListener('shake', () => {
-            Alert.alert("Shake it out!");
-        });
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                RNShake.addEventListener('shake', () => {
+                    Alert.alert(position.coords.latitude + " " + position.coords.longitude);
+                });
+            }
+        );
     }
     componentWillUnmount() {
         RNShake.removeEventListener('shake');
