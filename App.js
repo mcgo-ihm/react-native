@@ -10,6 +10,9 @@ import React, {Component} from 'react';
 import {StyleSheet, StatusBar, View, PermissionsAndroid} from 'react-native';
 import {MealList, DetailedMeal} from './src/app/components/meals';
 import { createStackNavigator } from 'react-navigation';
+import { createStore } from "redux";
+import { Provider } from "react-redux";
+import { order } from "./src/app/state";
 
 const RootStack = createStackNavigator(
   {
@@ -21,15 +24,19 @@ const RootStack = createStackNavigator(
   }
 );
 
+const store = createStore(order);
+
 type Props = {};
 export default class App extends Component<Props> {
   render() {
     this.requestLocationPermission();
     return (
-     <View style={styles.container}>
-        <StatusBar backgroundColor="#FCA10F" barStyle="light-content" />
-        <RootStack />
-     </View>
+      <Provider store={store}>
+        <View style={styles.container}>
+          <StatusBar backgroundColor="#FCA10F" barStyle="light-content" />
+          <RootStack />
+        </View>
+      </Provider>
     );
   }
 

@@ -10,7 +10,9 @@
     "react": "16.5.0",
     "react-native": "0.57.2",
     "react-native-shake": "^3.2.2",
-    "react-navigation": "^2.18.0"
+    "react-navigation": "^2.18.0",
+    "react-redux": "^5.1.0",
+    "redux": "^4.0.1"
   },
   "devDependencies": {
     "babel-jest": "23.6.0",
