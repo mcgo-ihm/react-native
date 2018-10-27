@@ -8,16 +8,16 @@
 
 import React, {Component} from 'react';
 import {StyleSheet, StatusBar, View, PermissionsAndroid} from 'react-native';
-import {MealList, DetailedMeal} from './src/app/components/meals';
+import {MealList, DetailedMeal} from './src/app/components';
 import { createStackNavigator } from 'react-navigation';
 import { createStore } from "redux";
 import { Provider } from "react-redux";
-import { order } from "./src/app/state";
+import { order, addItem } from "./src/app/state";
 
 const RootStack = createStackNavigator(
   {
     Home: MealList,
-    Detail: DetailedMeal
+    Detail: props => <DetailedMeal {...props} store={store} addItem={addItem}/>
   },
   {
     initialRouteName: 'Home',
@@ -25,6 +25,7 @@ const RootStack = createStackNavigator(
 );
 
 const store = createStore(order);
+store.subscribe(() => console.log(store.getState()));
 
 type Props = {};
 export default class App extends Component<Props> {

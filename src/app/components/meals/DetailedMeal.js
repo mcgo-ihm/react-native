@@ -6,25 +6,28 @@ export class DetailedMeal extends Component {
     static navigationOptions = {
         title: 'McGo'
     }
-    onPressButton() {
-        Alert.alert("Yay!");
+    constructor(props) {
+        super(props);
+        this.meal = this.props.navigation.getParam('meal', {key: "Error", description: "Error", prize: "0,00€",
+            thumbnailUri: "https://facebook.github.io/react-native/docs/assets/favicon.png"});
+    }
+    onPressButton = () => {
+        this.props.store.dispatch(this.props.addItem(this.meal));
     }
     render() {
-        let meal = this.props.navigation.getParam('meal', {key: "Error", description: "Error", prize: "0,00€",
-            thumbnailUri: "https://facebook.github.io/react-native/docs/assets/favicon.png"});
         return (
             <View style={styles.container}>
                 <View style={styles.header}>
-                    <Image style={styles.image} source={{ uri: meal.thumbnailUri }}></Image>
+                    <Image style={styles.image} source={{ uri: this.meal.thumbnailUri }}></Image>
                     <View style={styles.titleBox}>
-                        <Text style={styles.titleBoxText}>{meal.key}</Text>
+                        <Text style={styles.titleBoxText}>{this.meal.key}</Text>
                         <View>
-                            <Text style={styles.prize}>{meal.prize}</Text>
+                            <Text style={styles.prize}>{this.meal.prize}</Text>
                         </View>
                     </View>
                 </View>
                 <View style={{flex: 1}}>
-                    <Text style={{margin: 15}}>{meal.description}</Text>
+                    <Text style={{margin: 15}}>{this.meal.description}</Text>
                 </View>
                 <Button onPress={this.onPressButton} title="Ajouter à la commande"
                     color="#FCA10F" accessibilityLabel="Ajouter cet article à votre commande actuelle" />

@@ -10,6 +10,6 @@ export function removeItem(item) {
     return {type: REMOVE_ITEM, item};
 }
 
-export function getItems(item) {
+export function getItems() {
     return {type: GET_ITEMS};
 }

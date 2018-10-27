@@ -35,7 +35,7 @@ export class MealList extends Component {
         );
     }
     componentWillMount() {
-       navigator.geolocation.watchPosition(
+        navigator.geolocation.watchPosition(
             (position) => {
                 if (Math.abs(position.coords.longitude - 7) < 0.005 && Math.abs(position.coords.latitude - 43.55) < 0.005) {
                     Alert.alert(position.coords.longitude + " " + position.coords.latitude);
