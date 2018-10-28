@@ -47,7 +47,6 @@ export class MealList extends Component {
                             <Meal style={styles.item} name={item.key} thumbnailUri={item.thumbnailUri} />
                         </TouchableOpacity>}
                 />
-                <OrderElement meal={data[1]}/>
             </View>
         );
     }
