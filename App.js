@@ -7,8 +7,8 @@
  */
 
 import React, {Component} from 'react';
-import {StyleSheet, StatusBar, View, PermissionsAndroid} from 'react-native';
-import {MealList, DetailedMeal} from './src/app/components';
+import {StyleSheet, StatusBar, View, PermissionsAndroid, TouchableOpacity, Text} from 'react-native';
+import {MealList, DetailedMeal, Order} from './src/app/components';
 import { createStackNavigator } from 'react-navigation';
 import { createStore } from "redux";
 import { Provider } from "react-redux";
@@ -17,7 +17,8 @@ import { order, addItem } from "./src/app/state";
 const RootStack = createStackNavigator(
   {
     Home: MealList,
-    Detail: props => <DetailedMeal {...props} store={store} addItem={addItem}/>
+    Detail: props => <DetailedMeal {...props} store={store} addItem={addItem}/>,
+    Order: Order
   },
   {
     initialRouteName: 'Home',
