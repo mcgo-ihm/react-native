@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {View, Alert, Text, FlatList, StyleSheet, TouchableOpacity} from 'react-native';
 import {Meal} from './Meal.js';
-import RNShake from 'react-native-shake';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { FavoriteShakeListener } from '../../container/FavoriteShakeListener.js';
 
