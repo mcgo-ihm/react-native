@@ -3,7 +3,7 @@ import {View, Alert, Text, FlatList, StyleSheet, TouchableOpacity} from 'react-n
 import {Meal} from './Meal.js';
 import RNShake from 'react-native-shake';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { OrderElement } from '../orders/OrderElement.js';
+import { FavoriteShakeListener } from '../../container/FavoriteShakeListener.js';
 
 export class MealList extends Component {
     static navigationOptions = ({navigation}) => {
@@ -26,9 +26,7 @@ export class MealList extends Component {
     
     constructor(props){
         super(props);
-    }
-    render() {
-        const data = [
+        this.data = [
                 {key: "Parisien", description: "Un sandwich simple, certes, mais délicieux !", prize: "3,00€",
                     thumbnailUri: 'http://www.disneyfoodblog.com/wp-content/uploads/2013/07/ham-and-cheese-baguette-Les-Halles.jpg'},
                 {key: "Cheeseburger", description: "Le grand classique du burger, une valeur sure !", prize: "2,00€",
@@ -36,17 +34,20 @@ export class MealList extends Component {
                 {key: "Jambon-Beurre", description: "Le plus simple des sandwich, mais un immanquable.", prize: "2,00€",
                     thumbnailUri: 'http://micheltanguy.com/wp-content/uploads/2017/03/jambon-beurre2-1.jpg'}
             ];
+    }
+    render() {
         return (
             <View style={styles.container}>
                 <FlatList 
                     contentContainerStyle={styles.list}
                     numColumns={2}
-                    data = {data}
+                    data = {this.data}
                     renderItem = {({item}) =>
                         <TouchableOpacity onPress={() => this.props.navigation.navigate("Detail", {meal: item})} activeOpacity={0.5} >
                             <Meal style={styles.item} name={item.key} thumbnailUri={item.thumbnailUri} />
                         </TouchableOpacity>}
                 />
+                <FavoriteShakeListener meal={this.data[0]} />
             </View>
         );
     }
@@ -57,9 +58,6 @@ export class MealList extends Component {
                     Alert.alert(position.coords.longitude + " " + position.coords.latitude);
                 }
             });
-        RNShake.addEventListener('shake', () => {
-            Alert.alert("Shake it out!");
-        });
     }
     componentWillUnmount() {
         RNShake.removeEventListener('shake');
