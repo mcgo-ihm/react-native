@@ -43,7 +43,7 @@ export class MealList extends Component {
                     numColumns={2}
                     data = {this.data}
                     renderItem = {({item}) =>
-                        <TouchableOpacity onPress={() => this.props.navigation.navigate("Detail", {meal: item})} activeOpacity={0.5} >
+                        <TouchableOpacity onPress={() => this.props.navigation.push("Detail", {meal: item})} activeOpacity={0.5} >
                             <Meal style={styles.item} name={item.key} thumbnailUri={item.thumbnailUri} />
                         </TouchableOpacity>}
                 />

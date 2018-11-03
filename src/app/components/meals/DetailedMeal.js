@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, Image, StyleSheet, Button, Alert} from 'react-native';
-import {Meal} from './Meal.js';
+import {View, Text, Image, StyleSheet, Button, ToastAndroid, Platform} from 'react-native';
 
 export class DetailedMeal extends Component {
     static navigationOptions = {
@@ -13,6 +12,10 @@ export class DetailedMeal extends Component {
     }
     onPressButton = () => {
         this.props.store.dispatch(this.props.addItem(this.meal));
+        if (Platform.OS === 'android') {
+            ToastAndroid.show('Ajouté au panier !', ToastAndroid.SHORT);
+        }
+        this.props.navigation.pop();
     }
     render() {
         return (
