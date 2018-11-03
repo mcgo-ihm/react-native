@@ -37,7 +37,7 @@ export class MealList extends Component {
                             <Meal style={styles.item} name={item.key} thumbnailUri={item.thumbnailUri} />
                         </TouchableOpacity>}
                 />
-                <FavoriteShakeListener meal={this.data[0]} />
+                <FavoriteShakeListener navigation={this.props.navigation} meal={this.data[0]} />
                 <RestaurantListener />
             </View>
         );
