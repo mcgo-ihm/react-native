@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {View, Alert, Text, FlatList, StyleSheet, TouchableOpacity} from 'react-native';
 import {Meal} from './Meal.js';
 import {CartIcon} from '../orders/CartIcon.js';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import { FavoriteShakeListener } from '../../container/FavoriteShakeListener.js';
 import { RestaurantListener } from '../listener';
 
