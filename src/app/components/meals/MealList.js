@@ -3,6 +3,7 @@ import {View, Alert, Text, FlatList, StyleSheet, TouchableOpacity} from 'react-n
 import {Meal} from './Meal.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { FavoriteShakeListener } from '../../container/FavoriteShakeListener.js';
+import { RestaurantListener } from '../listener';
 
 export class MealList extends Component {
     static navigationOptions = ({navigation}) => {
@@ -47,20 +48,11 @@ export class MealList extends Component {
                         </TouchableOpacity>}
                 />
                 <FavoriteShakeListener meal={this.data[0]} />
+                <RestaurantListener />
             </View>
         );
     }
-    componentWillMount() {
-        navigator.geolocation.watchPosition(
-            (position) => {
-                if (Math.abs(position.coords.longitude - 7) < 0.005 && Math.abs(position.coords.latitude - 43.55) < 0.005) {
-                    Alert.alert(position.coords.longitude + " " + position.coords.latitude);
-                }
-            });
-    }
-    componentWillUnmount() {
-        RNShake.removeEventListener('shake');
-    }
+
 }
 
 const styles = StyleSheet.create({
