@@ -16,7 +16,7 @@ export class OrderElement extends Component {
                 </View>
                 <View style={styles.infos}>
                     <Text style={styles.label}>{this.meal.key}</Text>
-                    <TouchableOpacity style={styles.delete} activeOpacity={0.5}>
+                    <TouchableOpacity onPress={() => { this.props.remove(this.meal);}} style={styles.delete} activeOpacity={0.5}>
                         <Text style={styles.deleteText}>Suppr.</Text>
                     </TouchableOpacity>
                 </View>

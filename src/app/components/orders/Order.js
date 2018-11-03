@@ -9,7 +9,8 @@ export class Order extends Component {
     render() {
         return (
             <FlatList data={this.props.cart}
-                renderItem = {({item}) => <OrderElement meal={item} />} />
+                renderItem={({item}) => <OrderElement meal={item}
+                                        remove={this.props.remove} />} />
         );
     }
 }
