@@ -8,7 +8,7 @@ export class Order extends Component {
     }
     render() {
         return (
-            <FlatList data={this.props.navigation.getParam('orderedMeals', [])}
+            <FlatList data={this.props.cart}
                 renderItem = {({item}) => <OrderElement meal={item} />} />
         );
     }

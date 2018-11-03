@@ -1,7 +1,7 @@
 import { bindActionCreators } from 'redux'
 import * as actions from '../state/actions.js'
 import { connect } from 'react-redux'
-import { ShakeListener } from '../components/listener/ShakeListener.js';
+import { ShakeListener } from '../components/listener';
 
 const mapStateToProps = (state) => {return {cart: state.cart} };
 
