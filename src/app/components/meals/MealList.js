@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import {View, Alert, Text, FlatList, StyleSheet, TouchableOpacity} from 'react-native';
 import {Meal} from './Meal.js';
-import {CartIcon} from '../orders/CartIcon.js';
-import { FavoriteShakeListener } from '../../container/FavoriteShakeListener.js';
+import { FavoriteShakeListener, VisibleCartIcon } from '../../container';
 import { RestaurantListener } from '../listener';
 
 export class MealList extends Component {
@@ -10,7 +9,7 @@ export class MealList extends Component {
         return {
             title: 'McGo',
             headerRight: (
-                <CartIcon navigation={navigation} />
+                <VisibleCartIcon navigation={navigation} />
             )
         }
     };

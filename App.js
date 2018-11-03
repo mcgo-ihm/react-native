@@ -8,7 +8,7 @@
 
 import React, {Component} from 'react';
 import {StyleSheet, StatusBar, View, PermissionsAndroid, TouchableOpacity, Text} from 'react-native';
-import {MealList, DetailedMeal, Order} from './src/app/components';
+import {MealList, DetailedMeal} from './src/app/components';
 
 import { createStackNavigator } from 'react-navigation';
 import { createStore } from "redux";
